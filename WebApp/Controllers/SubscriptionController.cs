@@ -54,14 +54,14 @@ namespace WebApp.Controllers
                 return NotFound();
             }
 
-            return View("SubscriptionDetails", subscriptionDetails);
+            return View("SubscriptionDetails", _mapper.Map<WebApp.Models.Subscription>(subscriptionDetails));
         }
 
         public IActionResult DeleteSubscription(int id)
         {
            _subscriptionRepository.DeleteSubscription(id);
 
-            return RedirectToAction("ListAll", "SubscriptionsList");
+            return RedirectToAction("ListAll");
         }
     }
 }
