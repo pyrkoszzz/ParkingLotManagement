@@ -1,6 +1,6 @@
-﻿using Domain.Entities;
+﻿using Domain.Data;
+using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
-using WebApp.Data;
 
 namespace Domain.Repositories
 {
@@ -37,7 +37,7 @@ namespace Domain.Repositories
 
         public IEnumerable<Subscription> GetAllSubscriptions()
         {
-            return _context.Subscriptions.ToList();
+            return _context.Subscriptions.Where(x => x.IsDeleted == false).ToList();
         }
 
         public bool UpdateSubscription(Subscription subscription)
