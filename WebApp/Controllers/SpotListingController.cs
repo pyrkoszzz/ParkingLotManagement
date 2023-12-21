@@ -21,7 +21,7 @@ namespace WebApp.Controllers
         {
             var result = _parkingContext.GetParkingSpots();
             var parkingSpots = _mapper.Map<IEnumerable<ParkingSpots>>(result);
-            return View();
+            return View(parkingSpots.First());
         }
     }
 }
