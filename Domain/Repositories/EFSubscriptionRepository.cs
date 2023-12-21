@@ -15,6 +15,13 @@ namespace Domain.Repositories
 
         public bool AddSubscription(Subscription subscription)
         {
+            var subscriptionsWithSameCode = _context.Subscriptions.Where(x => x.Code == subscription.Code).ToList();
+
+            if(subscriptionsWithSameCode.Count > 0)
+            {
+                return false;
+            }
+
             _context.Subscriptions.Add(subscription);
             var affectedRows = _context.SaveChanges();
             return affectedRows > 0 ? true : false;
