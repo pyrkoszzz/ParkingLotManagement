@@ -12,8 +12,18 @@
                 <p>@subscription.DiscountValue</p>
                 <p>@subscription.StartDate</p>
                 <p>@subscription.EndDate</p>
-                <a href="@Url.Action("ViewSubscriptionDetails", "Subscription") class="btn btn-primary">View Details</a>
-                <a href="@Url.Action("DeleteSubscription", "Subscription") class="btn btn-primary">Delete</a>
+                <a class="btn btn-primary"
+                   asp-controller="Subscription"
+                   asp-action="ViewSubscriptionDetails"
+                   asp-route-id="@subscription.Id">
+                    View Details
+                </a>
+                <a class="btn btn-primary"
+                   asp-controller="Subscription"
+                   asp-action="DeleteSubscription"
+                   asp-route-id="@subscription.Id">
+                    Delete
+                </a>
             </div>
         }
     </div>
