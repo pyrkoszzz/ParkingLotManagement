@@ -25,8 +25,7 @@ namespace WebApp.Controllers
 		{
 			var newLog = log;
 			_logRepository.CreateLog(_mapper.Map<Domain.Entities.Log>(log));
-			var logs = _logRepository.GetAllLogs();
-			return View(new List<Log> { newLog });
+			return RedirectToAction("ListAll");
 		}
 	}
 }
