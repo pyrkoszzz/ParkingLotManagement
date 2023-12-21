@@ -19,7 +19,7 @@ public class PricingPlanController : Controller
         return View(mapper.Map<IEnumerable<PricingPlan>>(pricingPlanRepository.GetPricingPlans()));
     }
 
-    public IActionResult ViewPricingPlanDetails(int id)
+    public IActionResult PricingPlanDetails(int id)
     {
         return View(mapper.Map<PricingPlan>(pricingPlanRepository.GetPricingPlanById(id)));
     }
