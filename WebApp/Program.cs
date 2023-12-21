@@ -2,7 +2,6 @@ using Domain.Repositories;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Domain.Data;
-using Domain.Repositories;
 using WebApp.Profiles;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -22,6 +21,7 @@ services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfi
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped <IParkingRepository, EfParkingRepository>();
 builder.Services.AddScoped <ISubscriptionRepository, EFSubscriptionRepository>();
+builder.Services.AddScoped <IEfLogRepository, EfLogRepository>();
 builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
 var app = builder.Build();
 

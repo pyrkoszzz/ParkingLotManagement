@@ -13,6 +13,7 @@ namespace WebApp.Profiles
                 .ForMember(plan => plan.Type, opt => opt.MapFrom(src => src.Type));
             CreateMap<Domain.Entities.PricingPlanType, Models.PricingPlanType>().ReverseMap();
             CreateMap<Domain.Entities.Subscription, Models.Subscription>().ReverseMap();
+            CreateMap<Domain.Entities.Log, Models.Log>().ReverseMap();
         }
     }
 }
