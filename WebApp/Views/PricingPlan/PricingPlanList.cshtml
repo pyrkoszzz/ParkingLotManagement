@@ -6,12 +6,16 @@
 
 @foreach (var plan in Model)
 {
-    @plan.Type.Name.ToUpper()
+    <h3>@plan.Type.Name.ToUpper() PRICING PLAN</h3>
+
+    <p>Hourly Pricing: @plan.HourlyPricing</p>
+    <p>Daily Pricing: @plan.DailyPricing</p>
+    <p>Minimum Hours: @plan.MinimumHours</p>
     <a class="btn btn-primary"
        asp-controller="PricingPlan"
-       asp-action="PricingPlanDetails"
+       asp-action="EditPricingPlan"
        asp-route-id="@plan.Id">
-        Details
+        Edit
     </a>
     <br />
 }

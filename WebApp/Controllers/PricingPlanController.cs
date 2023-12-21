@@ -1,9 +1,9 @@
 ﻿using AutoMapper;
 using Domain.Repositories;
 using Microsoft.AspNetCore.Mvc;
-using WebApp.Models;
 
 namespace WebApp.Controllers;
+
 public class PricingPlanController : Controller
 {
     private readonly IPricingPlanRepository pricingPlanRepository;
@@ -14,13 +14,21 @@ public class PricingPlanController : Controller
         this.pricingPlanRepository = pricingPlanRepository;
         this.mapper = mapper;
     }
-    public IActionResult Index()
+    public IActionResult PricingPlanList()
     {
-        return View(mapper.Map<IEnumerable<PricingPlan>>(pricingPlanRepository.GetPricingPlans()));
+        return View(mapper.Map<IEnumerable<Models.PricingPlan>>(pricingPlanRepository.GetPricingPlans()));
     }
 
-    public IActionResult PricingPlanDetails(int id)
+    public IActionResult EditPricingPlan(int id)
     {
-        return View(mapper.Map<PricingPlan>(pricingPlanRepository.GetPricingPlanById(id)));
+        return View(mapper.Map<Models.PricingPlan>(pricingPlanRepository.GetPricingPlanById(id)));
+    }
+
+    [HttpPost]
+    public IActionResult EditPricingPlan(Models.PricingPlan pricingPlan)
+    {
+        pricingPlanRepository.UpdatePricingPlan(mapper.Map<Domain.Entities.PricingPlan>(pricingPlan));
+
+        return View("PricingPlanList", mapper.Map<IEnumerable<Models.PricingPlan>>(pricingPlanRepository.GetPricingPlans()));
     }
 }
