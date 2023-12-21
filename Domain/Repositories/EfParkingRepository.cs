@@ -16,5 +16,11 @@ namespace Domain.Repositories
 		{
 			return _context.ParkingSpots.ToList().First();
 		}
+
+		public void UpdateParkingSpots(int TotalSpots)
+		{
+			_context.ParkingSpots.ToList().First().TotalSpots = TotalSpots;
+			_context.SaveChanges();
+		}
 	}
 }

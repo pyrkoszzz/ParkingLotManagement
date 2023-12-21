@@ -31,5 +31,18 @@ namespace WebApp.Controllers
             };
             return View(parkingSpots);
         }
+
+        [HttpPost]
+        public IActionResult Total(ParkingSpots parkingSpots)
+        {
+            var newParkingSpots = new ParkingSpots()
+            {
+                TotalSpots = parkingSpots.TotalSpots,
+                ReservedSpots = parkingSpots.ReservedSpots,
+                RegularSpots = parkingSpots.TotalSpots - parkingSpots.ReservedSpots
+            };
+            _parkingContext.UpdateParkingSpots(parkingSpots.TotalSpots);
+            return View(newParkingSpots);
+        }
     }
 }

@@ -12,3 +12,12 @@
     <h5 class="card-title">Regular Spots: @Model.RegularSpots</h5>
   </div>
 </div>
+
+<form asp-controller="SpotListing" asp-action="Total" method="post">
+    @Html.HiddenFor(model => model.ReservedSpots)
+    @Html.HiddenFor(model => model.RegularSpots)
+    <label for="TotalSpots">Billing address</label>
+    <input type="text" id="TotalSpots" name="TotalSpots" class="form-control" required />
+    <br />
+    <button type="submit" class="btn btn-primary">Update</button>
+</form>
