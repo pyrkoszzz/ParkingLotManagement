@@ -21,6 +21,7 @@ services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfi
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped <IParkingRepository, EfParkingRepository>();
+builder.Services.AddScoped <ISubscriptionRepository, EFSubscriptionRepository>();
 builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
 var app = builder.Build();
 

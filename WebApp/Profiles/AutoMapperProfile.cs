@@ -9,6 +9,7 @@ namespace WebApp.Profiles
         public AutoMapperProfile()
         {
             CreateMap<ParkingSpot, ParkingSpots>().ReverseMap();
+            CreateMap<Domain.Entities.Subscription, Models.Subscription>().ReverseMap();
         }
     }
 }

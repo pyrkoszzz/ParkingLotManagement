@@ -26,7 +26,7 @@ namespace WebApp.Controllers
             var result = _subscriptionRepository.GetAllSubscriptions();
             var subscriptions = _mapper.Map<IEnumerable<Subscription>>(result);
 
-            return View("SubscriptionList", subscriptions);
+            return View("SubscriptionsList", subscriptions);
         }
     }
 }
