@@ -15,6 +15,6 @@ public class Log
     [Required]
     public double Price { get; set; }
 
-    public int SubscriptionId { get; set; }
-    public Subscription Subscription { get; set; }
+    public int? SubscriptionId { get; set; }
+    public Subscription? Subscription { get; set; }
 }

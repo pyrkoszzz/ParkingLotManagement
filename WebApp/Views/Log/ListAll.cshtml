@@ -3,11 +3,30 @@
 @{
 	ViewBag.Title = "List Of Logs";
 }
+<h2>Add Log</h2>
+<form asp-controller="Log" asp-action="ListAll" method="post">
+    <label for="Code">Code</label>
+    <input type="text" id="Code" name="Code" class="form-control" required />
+    <br />
+	<label for="CheckInTime">CheckInTime</label>
+    <input type="date" id="CheckInTime" name="CheckInTime" class="form-control" required />
+    <br />
+	<label for="CheckOutTime">CheckOutTime</label>
+    <input type="date" id="CheckOutTime" name="CheckOutTime" class="form-control" required />
+    <br />
+    <label for="Price">Price</label>
+    <input type="text" id="Price" name="Price" class="form-control" required />
+    <br />
+    <button type="submit" class="btn btn-primary">Add Log</button>
+    <br />
+    <br />
+</form>
+
 <h2>List Of All Logs</h2>
 <br />
 <ul class="list-group">
 	@foreach (var item in @Model)
 	{
-		<li class="list-group-item">@item.Price @item.CheckInTime @item.CheckOutTime</li>
+		<li class="list-group-item">Price: @item.Price CheckInTime: @item.CheckInTime CheckOutTime: @item.CheckOutTime</li>
 	}
 </ul>
