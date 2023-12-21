@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Domain.Repositories;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using WebApp.Models;
 
 namespace WebApp.Controllers
@@ -27,6 +28,20 @@ namespace WebApp.Controllers
             var subscriptions = _mapper.Map<IEnumerable<Subscription>>(result);
 
             return View("SubscriptionsList", subscriptions);
+        }
+
+        public IActionResult AddSubscription()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult AddSubscription(Subscription subscription)
+        {
+            var subscriptionToAdd = _mapper.Map<Domain.Entities.Subscription>(subscription);
+            _subscriptionRepository.AddSubscription(subscriptionToAdd);
+
+            return RedirectToAction("ListAll", "SubscriptionsList");
         }
     }
 }

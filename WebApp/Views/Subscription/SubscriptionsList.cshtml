@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<Subscription>
 
 <div class="container col-12">
-
+    <a class="nav-link text-dark" asp-area="" asp-controller="Subscription" asp-action="AddSubscription">add subscriptions</a>
     <h3 class="mt-4">List of Subscriptions</h3>
     <div class="row">
         @foreach (var subscription in Model)
