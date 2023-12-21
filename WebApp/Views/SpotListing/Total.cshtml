@@ -16,7 +16,7 @@
 <form asp-controller="SpotListing" asp-action="Total" method="post">
     @Html.HiddenFor(model => model.ReservedSpots)
     @Html.HiddenFor(model => model.RegularSpots)
-    <label for="TotalSpots">Billing address</label>
+    <label for="TotalSpots">Update Total Spots</label>
     <input type="text" id="TotalSpots" name="TotalSpots" class="form-control" required />
     <br />
     <button type="submit" class="btn btn-primary">Update</button>
