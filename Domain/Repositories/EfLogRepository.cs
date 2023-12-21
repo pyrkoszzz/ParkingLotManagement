@@ -25,7 +25,6 @@ namespace Domain.Repositories
 		public void CreateLog(Log log)
 		{
 			_context.Logs.Add(log);
-			_context.SaveChanges();
 		}
 	}
 }
