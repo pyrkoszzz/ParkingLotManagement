@@ -1,0 +1,13 @@
+﻿@model IEnumerable<Log>
+
+@{
+	ViewBag.Title = "List Of Logs";
+}
+<h2>List Of All Logs</h2>
+<br />
+<ul class="list-group">
+	@foreach (var item in @Model)
+	{
+		<li class="list-group-item">@item.Price @item.CheckInTime @item.CheckOutTime</li>
+	}
+</ul>
