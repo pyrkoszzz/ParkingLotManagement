@@ -26,5 +26,6 @@ public class PricingPlanRepository : IPricingPlanRepository
     public void UpdatePricingPlan(PricingPlan pricingPlan)
     {
         context.PricingPlans.Update(pricingPlan);
+        context.SaveChanges();
     }
 }

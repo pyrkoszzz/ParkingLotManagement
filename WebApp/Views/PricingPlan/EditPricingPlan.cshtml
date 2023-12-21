@@ -1,0 +1,25 @@
+﻿@model WebApp.Models.PricingPlan
+
+@{
+    ViewBag.Title = "Edit Pricing Plan";
+}
+
+<form asp-controller="PricingPlan" asp-action="EditPricingPlan" method="post">
+    <input type="hidden" asp-for="@Model.Id" />
+    <input type="hidden" asp-for="@Model.Type.Id" />
+    <input type="hidden" asp-for="@Model.Type.Name" />
+
+    <p>
+        <label asp-for="@Model.HourlyPricing"></label>
+        <input asp-for="@Model.HourlyPricing" value="@Model.HourlyPricing">
+    </p>
+    <p>
+        <label asp-for="@Model.DailyPricing"></label>
+        <input asp-for="@Model.DailyPricing" value="@Model.DailyPricing">
+    </p>
+    <p>
+        <label asp-for="@Model.MinimumHours"></label>
+        <input asp-for="@Model.MinimumHours" value="@Model.MinimumHours">
+    </p>
+    <button type="submit" class="btn btn-warning">Update</button>
+</form>
