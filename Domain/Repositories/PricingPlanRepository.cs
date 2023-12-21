@@ -1,5 +1,5 @@
 ﻿using Domain.Entities;
-using WebApp.Data;
+using Domain.Data;
 
 namespace Domain.Repositories;
 
