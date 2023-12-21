@@ -20,5 +20,11 @@ namespace WebApp.Controllers
 			var logs = _logRepository.GetAllLogs();
 			return View(_mapper.Map<IEnumerable<Log>>(logs));
 		}
+		[HttpPost]
+		public IActionResult ListAll(Log log)
+		{
+			var newLog = log;
+			return View(new List<Log> { newLog });
+		}
 	}
 }
