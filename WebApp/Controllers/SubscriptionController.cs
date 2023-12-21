@@ -43,5 +43,18 @@ namespace WebApp.Controllers
 
             return RedirectToAction("ListAll", "SubscriptionsList");
         }
+
+        public IActionResult ViewSubscriptionDetails(int id)
+        {
+            var subscriptionDetails = _subscriptionRepository.GetAllSubscriptions()
+                .FirstOrDefault(p => p.Id == id);
+
+            if (subscriptionDetails == null)
+            {
+                return NotFound();
+            }
+
+            return View("SubscriptionDetails", subscriptionDetails);
+        }
     }
 }
