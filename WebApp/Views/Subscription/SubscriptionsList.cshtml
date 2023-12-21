@@ -12,7 +12,8 @@
                 <p>@subscription.DiscountValue</p>
                 <p>@subscription.StartDate</p>
                 <p>@subscription.EndDate</p>
-                <a href="@Url.Action("ViewSubscriptionDetails", "SubscriptionDetails") class="btn btn-primary">View Details</a>
+                <a href="@Url.Action("ViewSubscriptionDetails", "Subscription") class="btn btn-primary">View Details</a>
+                <a href="@Url.Action("DeleteSubscription", "Subscription") class="btn btn-primary">Delete</a>
             </div>
         }
     </div>
