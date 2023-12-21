@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Domain.Entities;
 
 namespace Domain.Repositories
 {
-    internal interface ISubscriptionRepository
+    public interface ISubscriptionRepository
     {
+        IEnumerable<Subscription> GetAllSubscriptions();
+        bool AddSubscription(Subscription subscription);
+        bool UpdateSubscription(Subscription subscription);
+        bool DeleteSubscription(int SubscriptionId);
     }
 }

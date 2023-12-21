@@ -1,0 +1,18 @@
+﻿@model IEnumerable<Subscription>
+
+<div class="container col-12">
+
+    <h3 class="mt-4">List of Subscriptions</h3>
+    <div class="row">
+        @foreach (var subscription in Model)
+        {
+            <div class="col-4">
+                <p>@subscription.Code</p>
+                <p>@subscription.Price</p>
+                <p>@subscription.DiscountValue</p>
+                <p>@subscription.StartDate</p>
+                <p>@subscription.EndDate</p>
+            </div>
+        }
+    </div>
+</div>
