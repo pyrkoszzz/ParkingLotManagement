@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Domain.Entities;
 
-public class Subscriber 
+public class Subscriber
 {
     [Required]
     public string FirstName { get; set; }
