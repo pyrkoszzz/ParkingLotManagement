@@ -12,9 +12,9 @@ namespace Domain.Repositories
 			_context = context;
 		}
 
-		public IEnumerable<ParkingSpot> GetParkingSpots()
+		public ParkingSpot GetParkingSpots()
 		{
-			return _context.ParkingSpots.ToList();
+			return _context.ParkingSpots.ToList().First();
 		}
 	}
 }

@@ -10,18 +10,26 @@ namespace WebApp.Controllers
     public class SpotListingController : Controller
     {
         private readonly IParkingRepository _parkingContext;
+        private readonly ISubscriptionRepository _subscriptionRepository;
         private readonly IMapper _mapper;
 
-        public SpotListingController(IParkingRepository parkingContext, IMapper mapper)
+        public SpotListingController(IParkingRepository parkingContext, ISubscriptionRepository subsctriptionContext, IMapper mapper)
 		{
             _parkingContext = parkingContext;
+            _subscriptionRepository = subsctriptionContext;
             _mapper = mapper;
 		}
         public IActionResult Total()
         {
-            var result = _parkingContext.GetParkingSpots();
-            var parkingSpots = _mapper.Map<IEnumerable<ParkingSpots>>(result);
-            return View(parkingSpots.First());
+            var all = _parkingContext.GetParkingSpots().TotalSpots;
+            var reserved = _subscriptionRepository.GetAllSubscriptions().Count();
+            var parkingSpots = new ParkingSpots() 
+            { 
+                TotalSpots = all,
+                ReservedSpots = reserved,
+                RegularSpots = all - reserved
+            };
+            return View(parkingSpots);
         }
     }
 }

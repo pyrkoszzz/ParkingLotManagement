@@ -4,6 +4,6 @@ namespace Domain.Repositories
 {
 	public interface IParkingRepository
 	{
-		public IEnumerable<ParkingSpot> GetParkingSpots();
+		public ParkingSpot GetParkingSpots();
 	}
 }
