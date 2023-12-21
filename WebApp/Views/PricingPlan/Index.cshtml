@@ -1,4 +1,16 @@
 ﻿@model IEnumerable<WebApp.Models.PricingPlan>
 
 @{
+    ViewBag.Title = "List of Pricing Plans";
+}
+
+@foreach (var plan in Model)
+{
+    @plan.Type.Name.ToUpper()
+    <a class="btn btn-primary"
+       asp-controller="PricingPlan"
+       asp-action="ViewPricingPlanDetails"
+       asp-route-id="@plan.Id">
+        Details
+    </a>
 }
