@@ -56,5 +56,12 @@ namespace WebApp.Controllers
 
             return View("SubscriptionDetails", subscriptionDetails);
         }
+
+        public IActionResult DeleteSubscription(int id)
+        {
+           _subscriptionRepository.DeleteSubscription(id);
+
+            return RedirectToAction("ListAll", "SubscriptionsList");
+        }
     }
 }
