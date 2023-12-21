@@ -68,14 +68,6 @@ namespace Domain.Data
                     DailyPricing=20,
                     MinimumHours=5,
                     PricingPlanTypeId= 1
-                },
-                new PricingPlan
-                {
-                    Id = 3,
-                    HourlyPricing = 1.5,
-                    DailyPricing=30,
-                    MinimumHours=12,
-                    PricingPlanTypeId= 1
                 }
             };
 
